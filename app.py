@@ -5,8 +5,8 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-                            database='flask_db',
+    conn = psycopg2.connect(host=os.environ['DB_HOST'],
+                            database=os.environ['DB_NAME'],
                             user=os.environ['DB_USERNAME'],
                             password=os.environ['DB_PASSWORD'])
     return conn
